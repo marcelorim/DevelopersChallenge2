@@ -1,0 +1,54 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+@using (Html.BeginForm("FileUpload", "BankStatements", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="row">
+        <div class="col-lg-12">
+            <h1>Upload OFX file</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">&nbsp;</div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <span class="btn btn-success fileinput-button">
+                <i class="fa fa-plus"></i>
+                <span>Add files...</span>
+                <input id="files" type="file" name="files[]" multiple="">
+            </span>
+            <button type="submit" class="btn btn-primary start">
+                <i class="fa fa-upload"></i>
+                <span>Start upload</span>
+            </button>
+            <button id="btnReset" type="reset" class="btn btn-warning cancel">
+                <i class="fa fa-ban"></i>
+                <span>Cancel upload</span>
+            </button>
+        </div>
+        <div id="list_file" class="col-lg-12">No file selected.</div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">&nbsp;</div>
+        @if (@ViewData["MessageSucess"] != null)
+        {
+            <div class="col-lg-12">
+                <div class="alert alert-success">
+                    <strong>Success!</strong> @ViewData["MessageSucess"].
+                </div>
+            </div>
+        }
+
+        @if (@ViewData["MessageError"] != null)
+        {
+            <div class="col-lg-12">
+                <div class="alert alert-danger">
+                    <strong>Error!</strong> @ViewData["MessageError"].
+                </div>
+            </div>
+        }
+    </div>
+}
