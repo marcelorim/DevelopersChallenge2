@@ -10,12 +10,7 @@ namespace Nibo.Business
 {
     public class ConverterRules : IConverterRules
     {
-        public BankStatement GenerateBankStatement(string ofxFile)
-        {
-            return GetBankStatement(ofxFile);
-        }
-
-        public static BankStatement GetBankStatement(string ofxFile)
+        public BankStatement GetBankStatement(string ofxFile)
         {
             bool hasHeader = false;
             bool hasAccountData = false;

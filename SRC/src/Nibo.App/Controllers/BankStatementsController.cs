@@ -94,7 +94,7 @@ namespace Nibo.App.Controllers
                             await currentFile.CopyToAsync(fileStream);
                         }
 
-                        bankStatementEntity = ConverterRules.GenerateBankStatement(fullPath.ToString());
+                        bankStatementEntity = ConverterRules.GetBankStatement(fullPath.ToString());
                         transactions.AddRange(bankStatementEntity.Transactions);
 
                         if (!includeBankStatementData)
